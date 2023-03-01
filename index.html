@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<style>
+	@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+HK&display=swap');
+	*{
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+	body{
+		font-family: 'Noto Sans HK', sans-serif;
+		background-color: #343541;
+		color: #ececf1;
+		font-size: 17px;
+
+	}
+	p{
+		display: inline-block;
+	}
+	.ktb {
+		padding: 6px 0px;
+/*		margin: ;*/
+		max-width: 750px;
+		background-color: hsla(0,0%,100%,.05);
+/*		border: 2px solid #DA0037;*/
+		border-radius: 5px;
+		display: flex;
+		justify-content: space-between;
+		margin: 3px auto;
+	}
+	.ktb1{
+		display: block;
+		margin-left: 10px;
+		height: 45px;
+		font-size: 12px;
+
+	}
+	.ktb2{
+		display: block;
+		height:45px;
+/*		max-width: ;*/
+	}
+	.ktb3{
+		display: block;
+/*		max-width: 20%;*/
+		height: 45px;
+	}
+</style>
+<body>
+	
+	<div class="ktb">
+		<p id="ida"></p>
+		<p id="jp"></p>
+		<p id="mm"></p>
+	</div>
+<!-- 	<div class="ktb">
+		<p class="id">1/1</p>
+		<p class="jp">わたし</p>
+		<p class="mm">ကျွန်တော်၊ ကျွန်မ</p>
+	</div>
+	<div class="ktb">
+		<p class="id">1/1</p>
+		<p class="jp">わたし</p>
+		<p class="mm">ကျွန်တော်၊ ကျွန်မ</p>
+	</div>
+	<div class="ktb">
+		<p class="id">1/1</p>
+		<p class="jp">わたし</p>
+		<p class="mm">ကျွန်တော်၊ ကျွန်မ</p>
+	</div> -->
+</body>
+<script src="data.js"></script>
+<script type="text/javascript">
+
+	for (var x = 0; x < data.length; x++) {
+     let someObject = data[x];
+	 //get title
+	 let title = someObject["title"];
+	 //word is array
+	 let word = someObject["words"];
+
+	 for (var i =0; i < word.length; i++) {
+	 	 	 //kotobaS is Object
+	 let kotobaS = word[i];
+
+	 //get "no"
+	 let idValue = kotobaS["no"];
+	 let romajiValue = kotobaS["romaji"];
+	 let hiraganaValue = kotobaS["hiragana"];
+	 let englishValue = kotobaS["english"];
+	 let myanmarValue = kotobaS["myanmar"];
+
+    // document.getElementById("jp").innerHTML = myanmarValue;
+     // document.write(`${title}${idValue} ${romajiValue} ${hiraganaValue} ${englishValue} ${myanmarValue}`); //1/1 watashi わたし I ကျွန်တော်၊ ကျွန်မ
+
+     // var outputP2 = document.getElementById("mm");
+    var outputP = document.getElementById("ida");
+   	var element = document.createElement("span");
+     		element.classList.add("ktb1"); 
+			element.innerText = idValue ;
+			outputP.appendChild(element);
+
+    var outputP1 = document.getElementById("jp");
+	var element = document.createElement("span");
+     		element.classList.add("ktb2"); 
+			element.innerText = hiraganaValue ;
+			outputP1.appendChild(element);
+
+	var outputP2 = document.getElementById("mm");
+	var element = document.createElement("span");
+			element.classList.add("ktb3"); 
+			element.innerHTML = myanmarValue;
+			outputP2.appendChild(element);
+	 }
+	 }
+	
+</script>
+</html>
